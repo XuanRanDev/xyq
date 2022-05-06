@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>菜鸟订餐</title>
-    <link href="/Ordering/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/commons.css">
 
@@ -196,9 +196,9 @@
 </div>
 
 
-<script src="/Ordering/jquery/jquery.min.js"></script>
+<script src="jquery/jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-<script src="/Ordering/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function tc(){
             alert('请先登录！！！');

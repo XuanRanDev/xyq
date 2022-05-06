@@ -12,9 +12,9 @@ import java.util.List;
 
 public class OrdersDao {
     /*
-    * admin订单更新
-    * */
-    public boolean adminUpdate(Orders orders){
+     * admin订单更新
+     * */
+    public boolean adminUpdate(Orders orders) {
         String sql = "update orders set pzstate=? where o_id=?";
         Object[] ps = new Object[2];
         ps[0] = orders.getPzstate();
@@ -22,6 +22,7 @@ public class OrdersDao {
         SqlHelper.executeUpdate(sql, ps);
         return true;
     }
+
     /**
      * 根据ID查询订单
      */
@@ -31,7 +32,7 @@ public class OrdersDao {
         ps[0] = id.toString();
 
         ResultSet resultSet = SqlHelper.executeQuery(sql, ps);
-        try{
+        try {
             while (resultSet.next()) {
                 Orders orders = new Orders();
                 orders.setO_id(resultSet.getInt("o_id"));
@@ -41,16 +42,17 @@ public class OrdersDao {
                 orders.setPzstate(resultSet.getString("pzstate"));
                 return orders;
             }
-        }catch (Exception er){
+        } catch (Exception er) {
             er.printStackTrace();
         }
         return null;
     }
+
     /*
-    * 管理员订单信息用户id模糊查询
-    * */
+     * 管理员订单信息用户id模糊查询
+     * */
     //菜品名的模糊查询
-    public List<Orders> findOreders(String key){
+    public List<Orders> findOreders(String key) {
         String sql = "select orders.o_id,user.loginId,food.f_name,orders.o_num,food.price * orders.o_num as num,orders.markup,orders.state,orders.pzstate,user.mobile \n" +
                 "from orders join user on orders.u_id = user.u_id join food on orders.f_id = food.f_id where loginId like ?;";
         String[] ps = new String[1];
@@ -77,18 +79,20 @@ public class OrdersDao {
         }
         return findOrdersList;
     }
+
     /*
-    * admin删除订单
-    * */
+     * admin删除订单
+     * */
     public boolean delByOid(Integer id) {
         String sql = "delete from orders where o_id = ?";
         SqlHelper.executeUpdate(sql, new Object[]{id});
         return true;
     }
+
     /*
-    * 管理员订单信息
-    * */
-    public List<Orders> findAllorders(){
+     * 管理员订单信息
+     * */
+    public List<Orders> findAllorders() {
         String sql = "select orders.o_id,user.loginId,food.f_name,orders.o_num,food.price * orders.o_num as num,orders.markup,orders.state,orders.pzstate,user.mobile \n" +
                 "from orders join food on orders.f_id = food.f_id join user on orders.u_id = user.u_id;";
         ResultSet resultSet = SqlHelper.executeQuery(sql, null);
@@ -112,6 +116,7 @@ public class OrdersDao {
         }
         return list;
     }
+
     /**
      * 删除订单
      */
@@ -130,6 +135,7 @@ public class OrdersDao {
         }
         return i;
     }
+
     /**
      * 更新订单
      */
@@ -144,8 +150,8 @@ public class OrdersDao {
             ps.setInt(3, orders.getO_num());
             ps.setString(4, orders.getMarkup());
             ps.setString(5, orders.getState());
-            ps.setString(6,orders.getPzstate());
-            ps.setString(7,orders.getPd());
+            ps.setString(6, orders.getPzstate());
+            ps.setString(7, orders.getPd());
             ps.setInt(8, orders.getO_id());
             i = ps.executeUpdate();
             ps.close();
@@ -155,6 +161,7 @@ public class OrdersDao {
         }
         return i;
     }
+
     /**
      * 查询正在配送的订单
      */
@@ -168,7 +175,7 @@ public class OrdersDao {
             ps.setInt(1, user.getU_id());
             ps.setString(2, "正在配送");
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Orders orders = new Orders();
                 orders.setO_id(rs.getInt("o_id"));
                 orders.setUser(UserDao.searchById(rs.getInt("u_id")));
@@ -191,6 +198,7 @@ public class OrdersDao {
         }
         return list;
     }
+
     /**
      * 查询等待配送的订单
      */
@@ -203,9 +211,9 @@ public class OrdersDao {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, user.getU_id());
             ps.setString(2, "是");
-            ps.setString(3,"等待配送");
+            ps.setString(3, "等待配送");
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Orders orders = new Orders();
                 orders.setO_id(rs.getInt("o_id"));
                 orders.setUser(UserDao.searchById(rs.getInt("u_id")));
@@ -225,6 +233,7 @@ public class OrdersDao {
         }
         return list;
     }
+
     /**
      * 查询购物车
      */
@@ -238,7 +247,7 @@ public class OrdersDao {
             ps.setInt(1, user.getU_id());
             ps.setString(2, "否");
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Orders orders = new Orders();
                 orders.setO_id(rs.getInt("o_id"));
                 orders.setUser(UserDao.searchById(rs.getInt("u_id")));
@@ -258,6 +267,7 @@ public class OrdersDao {
         }
         return list;
     }
+
     /**
      * 保存订单
      */
@@ -271,8 +281,8 @@ public class OrdersDao {
             ps.setInt(3, orders.getO_num());
             ps.setString(4, orders.getMarkup());
             ps.setString(5, orders.getState());
-            ps.setString(6,orders.getPzstate());
-            ps.setString(7,orders.getPd());
+            ps.setString(6, orders.getPzstate());
+            ps.setString(7, orders.getPd());
             ps.executeUpdate();
             ps.close();
             conn.close();
