@@ -18,9 +18,9 @@ public class DeleCommentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer id = Integer.parseInt(request.getParameter("id"));
         CommentDao dao = new CommentDao();
-        dao.delByCid(id);
-        System.out.println("删除成功");
+        boolean b = dao.delByCid(id);
+        System.out.println("删除状态：" + b);
         response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write("<script language='javascript'>alert('用户删除成功');window.location.href='adminComment';</script>");
+        response.getWriter().write("<script language='javascript'>alert('用户删除成功');history.go(-1);;</script>");
     }
 }

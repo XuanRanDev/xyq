@@ -89,7 +89,7 @@ public class FoodAddServlet extends HttpServlet {
             e.printStackTrace();
         }
         response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write("<script language='javascript'>alert('添加成功');window.location.href='addFood';</script>");
+        response.getWriter().write("<script language='javascript'>alert('添加成功');</script>");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

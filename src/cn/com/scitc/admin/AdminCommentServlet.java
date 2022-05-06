@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AdminCommentServlet",urlPatterns = "/filterAdmin/adminComment")
+@WebServlet(name = "AdminCommentServlet",urlPatterns = "/adminComment")
 public class AdminCommentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -22,6 +22,6 @@ public class AdminCommentServlet extends HttpServlet {
         List<Comment> list = dao.findAllCom();
 
         request.setAttribute("list",list);
-        request.getRequestDispatcher("adminComment.jsp").forward(request ,response);
+        request.getRequestDispatcher("adminComment2.jsp").forward(request ,response);
     }
 }

@@ -117,7 +117,8 @@
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse in">
                                 <div class="panel-body aaa" style="text-align: center;">
-                                    <a class="aaa" target="frame" href="${pageContext.request.contextPath}/filterAdmin/adminUser">用户信息</a>
+                                    <a class="aaa" target="frame"
+                                       href="${pageContext.request.contextPath}/filterAdmin/adminUser">用户信息</a>
                                 </div>
                                 <div class="panel-body aaa" style="text-align: center">
                                     <a class="aaa" target="frame" href="<c:url value="/addUser"/>">添加用户</a>
@@ -151,6 +152,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion"
@@ -158,7 +160,7 @@
                                 </div>
                                 <div id="collapseFour" class="panel-collapse collapse">
                                     <div class="panel-body aaa" style="text-align: center;">
-                                        <a class="aaa" target="frame" href="<c:url value="/adminComment"/>">评论信息</a>
+                                        <a class="aaa" target="frame" href="<c:url value="/adminComment"/>">评论管理</a>
                                     </div>
                                 </div>
                             </div>
@@ -170,15 +172,15 @@
 
             <div class="right-body">
                 <div class="right-container">
-                    <iframe name="frame" id="iframe" src="<c:url value="/adminUser"/>"></iframe>
+                    <iframe name="frame" id="iframe" src="<c:url value="/food"/>"></iframe>
                 </div>
             </div>
         </div>
 
 
-        <script src="/Ordering/jquery/jquery.min.js"></script>
+        <script src="jquery/jquery.min.js"></script>
         <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-        <script src="/Ordering/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script type="text/javascript">
             function tc() {
                 alert('请先登录！！！');

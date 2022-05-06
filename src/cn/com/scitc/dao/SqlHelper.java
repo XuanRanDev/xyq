@@ -105,8 +105,7 @@ public class SqlHelper {
         }
     }
 
-    // update/delete/insert
-    // sql格式:UPDATE tablename SET columnn = ? WHERE column = ?
+
     public static void executeUpdate(String sql, Object[] parameters) {
         try {
             // 1.创建一个ps
