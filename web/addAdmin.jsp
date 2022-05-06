@@ -19,7 +19,7 @@
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <form method="get" action="<c:url value="/adminAdd"/>" class="form-inline">
+    <form method="get" action="http://localhost:8080/Demo/filterAdmin/adminAdd" class="form-inline">
         <div style="margin:0 auto;width: 200px;height: 800px;">
             <h1 style="text-align: center;">添加权限</h1>
                 <div class="form-group" style="margin-top:20px;">

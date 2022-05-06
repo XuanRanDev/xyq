@@ -23,12 +23,7 @@
 
 <div >
     <div style="text-align:center;margin:0 auto;"><span style="font-size: 50px;">用户信息</span></div>
-    <div style="margin-left: 690px;">
-        <form method="get" action="<c:url value="/seleUser"/>">
-            <input type="text" name="key" value="<c:out value="${param.key}" />"/>
-            <input type="submit" value="查询" />
-        </form>
-    </div>
+
     <table class="table table-hover table-bordered">
         <tr>
             <td style="text-align: center;font-weight: bold">账号</td>
@@ -48,18 +43,13 @@
                 <td style="text-align: center;"><c:out value="${user.mobile}" /></td>
                 <td style="text-align: center;"><c:out value="${user.u_flag}" /></td>
                 <td style="text-align: center;"><c:out value="${user.email}"/> </td>
-                <td style="text-align: center;">
-                    <a href="<c:url value="/del?id=${user.u_id}"/>" onclick = "return confirm('是否要删除?')">
-                        <span class = "glyphicon glyphicon-trash"></span>
-                    </a>
-                </td>
             </tr>
         </c:forEach>
     </table>
 </div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-<script src="/Ordering/jquery/jquery.min.js"></script>
+<script src="jquery/jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-<script src="/Ordering/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

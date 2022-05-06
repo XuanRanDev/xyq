@@ -22,6 +22,7 @@ public class AdminUserServlet extends HttpServlet {
         List<User> list = dao.findAll();
 
         request.setAttribute("list",list);
-        request.getRequestDispatcher("adminUser.jsp").forward(request, response);
+        System.out.println(list);
+        request.getRequestDispatcher("/adminUser.jsp").forward(request, response);
     }
 }

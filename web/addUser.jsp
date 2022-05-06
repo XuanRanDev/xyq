@@ -22,7 +22,7 @@
 <div style="width:510px;margin: 0 auto;">
     <h1 style="text-align: center;">添加用户</h1>
 
-    <form method="get" action="<c:url value="/userAdd"/>" class="form-inline">
+    <form method="get" action="http://localhost:8080/Demo/filterAdmin/userAdd" class="form-inline">
         <div class="form-group" style="margin-top:20px;margin-left: 5px; ">
             <label>账 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
             <input type="text" class="form-control" name="loginId" placeholder="账号" style="width: 170px;" required autofocus>

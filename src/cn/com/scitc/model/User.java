@@ -70,4 +70,17 @@ public class User {
         this.email = email;
         return email;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "u_id=" + u_id +
+                ", loginId='" + loginId + '\'' +
+                ", password='" + password + '\'' +
+                ", userName='" + userName + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", u_flag='" + u_flag + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

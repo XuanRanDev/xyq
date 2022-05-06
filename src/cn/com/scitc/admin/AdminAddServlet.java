@@ -22,7 +22,9 @@ public class AdminAddServlet extends HttpServlet {
         String loginId = request.getParameter("loginId");
         User user = dao.searchByUsername(loginId);
         user.setU_flag("管理员");
-        dao.update(user);
-        response.getWriter().println("<script LANGUAGE='javascript'> alert('添加管理员成功！');history.go(-1);</script>");
+        UserDao.updatePermission(loginId,"管理员");
+
+        System.out.println(user);
+        response.getWriter().println("<script LANGUAGE='javascript'> alert('添加管理员成功!!！');history.go(-1);</script>");
     }
 }

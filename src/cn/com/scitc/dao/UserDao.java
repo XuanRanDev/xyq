@@ -137,6 +137,26 @@ public class UserDao{
         return false;
 
     }*/
+
+    public static int updatePermission(String id, String permission) {
+        String sql = "UPDATE user SET u_flag = ? WHERE loginId=?";
+        int i = 0;
+        try {
+            Connection conn = SqlHelper.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, permission);
+            ps.setString(2, String.valueOf(id));
+            i = ps.executeUpdate();
+            ps.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+
+
     //修改用户信息
     public static int update(User user) {
         String sql = "UPDATE user SET loginId=?, password=?, userName=?, mobile=?, u_flag=?, email=? WHERE u_id=?";
