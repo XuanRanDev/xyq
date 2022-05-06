@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.jspsmart.upload.File.SAVEAS_PHYSICAL;
+
 @WebServlet(name = "FoodAddServlet",urlPatterns = "/filterAdmin/foodAdd")
 public class FoodAddServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -39,7 +41,7 @@ public class FoodAddServlet extends HttpServlet {
             su.setDeniedFilesList("exe,bat,jsp,htm,html");
             //上传文件
             su.upload();
-            su.save("/img/");
+            su.save("E:/FoodImg/",SAVEAS_PHYSICAL);
             //获取上传的文件操作
             Files files = su.getFiles();
             //获取单个文件
@@ -65,7 +67,7 @@ public class FoodAddServlet extends HttpServlet {
 //					String sql = "INSERT INTO image(image) VALUES(" + fileName + ")";
                     request.setCharacterEncoding("gbk");
                     //执行上传操作
-                    singleFile.saveAs("/img/" + filedir, File.SAVEAS_VIRTUAL);
+                    su.save("E:/FoodImg/" + filedir,SAVEAS_PHYSICAL);
                     System.out.println("上传至： " + filedir);
                     String f_name = su.getRequest().getParameter("f_name");
                     String price = su.getRequest().getParameter("price");

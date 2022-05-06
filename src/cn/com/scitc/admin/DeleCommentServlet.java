@@ -21,6 +21,6 @@ public class DeleCommentServlet extends HttpServlet {
         boolean b = dao.delByCid(id);
         System.out.println("删除状态：" + b);
         response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write("<script language='javascript'>alert('用户删除成功');history.go(-1);;</script>");
+        response.getWriter().write("<script language='javascript'>alert('评论删除成功');history.back(-1);</script>");
     }
 }

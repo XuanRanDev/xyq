@@ -52,7 +52,6 @@
             <td class="td"><span class="text">配送状态</span></td>
             <!--<td class="td"><span class="text">操作</span></td>-->
         </tr>
-        <jsp:getProperty property="showPayList" name="ordersBean"/>
     </table>
 </div>
 </body>

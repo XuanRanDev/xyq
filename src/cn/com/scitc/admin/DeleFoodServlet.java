@@ -21,6 +21,6 @@ public class DeleFoodServlet extends HttpServlet {
         dao.delByFid(id);
         System.out.println("删除成功");
         response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write("<script language='javascript'>alert('删除成功');window.location.href='food';</script>");
+        response.getWriter().write("<script language='javascript'>alert('删除成功');history.back(-1);</script>");
     }
 }

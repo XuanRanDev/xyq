@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.jspsmart.upload.File.SAVEAS_PHYSICAL;
+
 @WebServlet(name = "FoodEditServlet",urlPatterns = "/filterAdmin/foodEdit")
 public class FoodEditServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -39,7 +41,7 @@ public class FoodEditServlet extends HttpServlet {
             su.setDeniedFilesList("exe,bat,jsp,htm,html");
             //上传文件
             su.upload();
-            su.save("/img/");
+            su.save("E:/FoodImg/",SAVEAS_PHYSICAL);
             //获取上传的文件操作
             Files files = su.getFiles();
             //获取单个文件
@@ -47,7 +49,9 @@ public class FoodEditServlet extends HttpServlet {
             //获取上传文件的扩展名
             String fileType = singleFile.getFileExt();
             //设置上传文件的扩展名
-            String[] type = {"JPG","jpg"};
+            String[] type = {"JPG","jpg","png"};
+
+
             // 判断上传文件的类型是否正确
             int place = java.util.Arrays.binarySearch(type, fileType);
             //判断文件扩展名是否正确
@@ -59,14 +63,11 @@ public class FoodEditServlet extends HttpServlet {
                     //以系统时间作为上传文件名称，设置上传完整路径
                     String fileName = String.valueOf(System.currentTimeMillis());
                     String filedir =  fileName + "." + singleFile.getFileExt();
-//					String smalldir = "samllImages/" + fileName + "." + singleFile.getFileExt();
-
-
-//					String sql = "INSERT INTO image(image) VALUES(" + fileName + ")";
                     request.setCharacterEncoding("gbk");
                     //执行上传操作
-                    singleFile.saveAs("/img/" + filedir, File.SAVEAS_VIRTUAL);
+                    su.save("E:/FoodImg/",SAVEAS_PHYSICAL);
                     System.out.println("上传至： " + filedir);
+                    System.out.println("路径： " + su.getFiles().getFile(0).getFilePathName());
                     String id = su.getRequest().getParameter("id");
                     Integer ids = Integer.parseInt(id);
                     String f_name = su.getRequest().getParameter("f_name");
@@ -92,7 +93,7 @@ public class FoodEditServlet extends HttpServlet {
             e.printStackTrace();
         }
         response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write("<script language='javascript'>alert('修改成功');window.location.href='editFood';</script>");
+        response.getWriter().write("<script language='javascript'>alert('修改成功');history.back(-1);</script>");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
