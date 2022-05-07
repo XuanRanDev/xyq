@@ -153,7 +153,7 @@
             %>
             <div id="body">
                 <h2><span style="color: red;"><%=food.getF_name() %> </span>详细信息 欢迎选购</h2>
-                <div class="left"><img src="img/<%=food.getF_image()%>.jpg" style="width: 140px;height: 150px;"/></div>
+                <div class="left"><img src="getFoodImg?name=<%=food.getF_image()%>" style="width: 140px;height: 150px;"/></div>
                 <form class="form" action="<c:url value="/addOrder"/>" method="get" onsubmit="return validateForm()">
                     <input type="hidden" name="id" value="<%=food.getF_id() %>">
                     <table class="table">
